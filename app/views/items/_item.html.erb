@@ -1,0 +1,12 @@
+<%# self is the view, which we pass to the decorator to get 'lazy' access to the i18n yml %>
+<% item_decorator = decorate(item, self) %>
+<%= turbo_frame_tag item do %>
+  <div class="row">
+    <div class="column"><%= item_decorator.date %></div>
+    <div class="column"><%= item_decorator.topic %></div>
+    <div class="column"><%= item_decorator.subtopic %></div>
+    <div class="column col-1x"><%= item_decorator.first_sentence %></div>
+    <%= item_decorator.edit(true, item) %>
+    <%= item_decorator.delete(true, item) %>
+  </div>
+<% end %>

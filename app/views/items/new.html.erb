@@ -1,0 +1,7 @@
+<% content_for :title, "New item" %>
+
+<%= turbo_frame_tag @item do %>
+  <div class="col-md-12 mb-4">
+    <%= render 'form', item: @item %>
+  </div>
+<% end %>

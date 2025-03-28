@@ -1,0 +1,16 @@
+<% item_decorator = decorate(@item, self) %>
+<%= turbo_frame_tag dom_id(@item) do %>
+  <div class="canvas gray100-canvas embossed px-2 my-2">
+    <div>
+      <h1 class='fs-5 mb-1'><%=@item.topic%> - <span class=''><%=@item.subtopic%></span> <%= link_to image_tag('edit.png', class: 'table_icon'), edit_item_path %></h1>
+      <h2 class='fs-6'><%= item_decorator.date %></h2>
+    </div>
+    <div>
+      <p class=""><%= @item.content %></p>
+    </div>
+
+    <div class="cancel">
+      <%= link_to image_tag('delete.png', class: "table_icon"), items_path %>
+    </div>        
+  </div>
+<% end %>

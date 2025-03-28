@@ -1,0 +1,8 @@
+one:
+  record: one (Item)
+  name: content
+  body: <p>In a <i>million</i> stars!</p>
+two:
+  record: two (Item)
+  name: content
+  body: <p>In a <i>billion</i> stars!</p>

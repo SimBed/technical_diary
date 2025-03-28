@@ -1,0 +1,30 @@
+<div id="items-filter" class="container mb-3 canvas gray100-canvas embossed">
+  <div class="container search">
+    <%= render partial: 'sort_selection' %>
+    <hr class = "search mb-3"></hr>
+    <%= form_with(url: filter_items_path, method: "get", class: "form-class", data: {turbo_frame: "items"}) do %>
+      <div class="field">
+        <%= text_field_tag :keyword, nil, class: "form-control-sm mb-2 search", placeholder: "keyword…", value: session[:keyword], oninput: "this.form.requestSubmit()" %>
+      </div>
+      <div class="container mb-1 px-1">
+        <div class="row">
+          <div class="col-4 px-0">
+            <fieldset>
+              <legend>TOPIC</legend>
+              <% @topics.each do |topic| %>
+                <%= label_tag nil, class: "chbox-lbl-filters" do %>
+                  <%= check_box_tag 'any_topic_of[]', topic, session[:filter_any_topic_of].present? ? session[:filter_any_topic_of].include?(topic) : false, id: "chbox#{topic}", onchange: "this.form.requestSubmit()" %>
+                  <%= topic %>
+                <% end %>
+              <% end %>
+            </fieldset>
+          </div>
+
+          <div class="container d-flex">
+            <%= link_to image_tag('clear_filter.png', class: "button_icon"), clear_filters_items_path, {class: "search searchdelete icon-container"} %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

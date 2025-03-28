@@ -1,0 +1,7 @@
+<% content_for :title, "Editing item" %>
+
+<%= turbo_frame_tag @item do %>
+
+<%= render "form", item: @item %>
+
+<% end %>

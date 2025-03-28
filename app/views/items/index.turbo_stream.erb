@@ -1,0 +1,8 @@
+<%= turbo_stream.update "items" do %>
+  <%= render partial: "items_table" %>
+<% end %>
+<%= turbo_stream.update "new_item" do %>
+  <%= render inline:'' %>
+<% end %>
+<%#= turbo_stream.prepend "flash", partial: "partials/flashes" %>
+<%= turbo_stream.prepend("flash", partial: "layouts/flash") %>
