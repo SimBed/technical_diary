@@ -9,6 +9,10 @@ class Item < ApplicationRecord
   scope :order_by_topic, -> { order(:topic, :subtopic, date: :desc) }
   scope :order_by_subtopic, -> { order(:subtopic, :topic, date: :desc) }
 
+  def self.topics
+    order(topic: :asc).distinct(:topic).pluck(:topic)
+  end
+
   def deletable?
     true
   end

@@ -71,13 +71,14 @@ class ItemsController < ApplicationController
   private
 
   def handle_filter
-    %w[any_topic_of].each do |key|
-      @items = @items.send(key, session["filter_#{key}"]) if session["filter_#{key}"].present?
-    end
+    @items = ItemQuery.new(session).call
+    # %w[any_topic_of].each do |key|
+    #   @items = @items.send(key, session["filter_#{key}"]) if session["filter_#{key}"].present?
+    # end
   end
 
   def prepare_filter_content
-    @topics = Item.order(topic: :asc).distinct(:topic).pluck(:topic)
+    @topics = Item.topics
   end
 
   def initialize_sort
