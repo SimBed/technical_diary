@@ -44,6 +44,7 @@ div.admin-table {
 
   .column {
     flex: 0.25;
+    position: relative; // necessary if want its content to be absolutely positioned eg an on hover animated underline
     overflow: hidden;      
     padding: 5px;
     border-right: 1px solid #ccc;

@@ -9,7 +9,7 @@ class ItemDecorator < BaseDecorator
     line_by_fullstop = content.to_plain_text
     line_by_newline = content.to_plain_text.split("\n").first
     content = line_by_fullstop.length > line_by_newline.length ? line_by_newline : line_by_fullstop
-    link_to content, item_path(self), class: "like_button_alt"
+    link_to content, item_path(self), class: "buttonlike"
   end
 
   def delete(_authorised, item)
